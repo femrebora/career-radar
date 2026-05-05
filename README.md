@@ -1,4 +1,4 @@
-# career-radar
+# Career-Radar
 
 A configurable CLI tool that scrapes job listings and funded PhD positions across **21 platforms**, filtered by a personal keyword profile. Works for **any field** — just edit the YAML config.
 
