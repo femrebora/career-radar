@@ -2,6 +2,13 @@
 
 A configurable CLI tool that scrapes job listings and funded PhD positions across **21 platforms**, filtered by a personal keyword profile. Works for **any field** — just edit the YAML config.
 
+![Python](https://img.shields.io/badge/python-3.11+-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey?logo=linux&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-supported-success?logo=linux&logoColor=white)
+![macOS](https://img.shields.io/badge/macOS-supported-success?logo=apple&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-supported-success?logo=windows&logoColor=white)
+
 ---
 
 ## Features
