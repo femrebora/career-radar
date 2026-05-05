@@ -3,30 +3,32 @@ profile:
   field: "Bioinformatics"
 
 # +15 pts each (capped at 60 total)
+# Tip: include your field AND broader role titles so job boards return results
 primary_keywords:
   - "bioinformatics"
-  - "cancer genomics"
-  - "CRISPR"
+  - "computational biology"
+  - "research scientist"
 
 # +5 pts each (capped at 20 total)
 secondary_keywords:
   - "Python"
-  - "Nextflow"
-  - "NGS"
-  - "single-cell"
   - "machine learning"
+  - "data science"
+  - "genomics"
+  - "PhD"
 
 # Score drops to 0 if any of these match
 exclude_keywords:
   - "veterinary"
   - "plant biology"
+  - "sales"
 
 # +10 pts bonus if listing country matches
 preferred_countries:
   - "Germany"
   - "UK"
   - "Netherlands"
-  - "Switzerland"
+  - "Remote"
 
 phd_settings:
   funded_only: true   # skip unfunded PhD listings
@@ -39,4 +41,5 @@ job_settings:
   experience_levels: ["Entry", "Mid", "Postdoc"]
 
 # Listings below this score are hidden (0–100)
-min_relevance_score: 40
+# Lower this if you want more results; raise it to see only strong matches
+min_relevance_score: 30

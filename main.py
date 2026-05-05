@@ -10,18 +10,15 @@ Modes:
   --mode phd   PhD positions only
   --mode job   Job listings only
 
-All sources
-  Job boards  : indeed  adzuna  remoteok  arbeitnow  weworkremotely
-                jobicy  themuse  jobspresso
-  PhD boards  : findaphd  euraxess  phdportal  embl  nature
-                academicpositions  scholar  phdscanner
-                jobsacuk  the_jobs  higheredjobs  daad  msca
+Active sources
+  Job boards  : adzuna  remoteok  arbeitnow  weworkremotely  jobicy  themuse
+  PhD boards  : phdscanner  scholar
 
 Usage:
   python main.py
   python main.py --mode phd
-  python main.py --mode job --sources indeed remoteok arbeitnow jobicy
-  python main.py --sources phdscanner findaphd euraxess
+  python main.py --mode job --sources remoteok arbeitnow jobicy
+  python main.py --sources phdscanner scholar
   python main.py --verbose
   python main.py --linkedin --glassdoor --researchgate
   python main.py --limit 60 --no-save
@@ -50,18 +47,12 @@ from filters.output import print_results_table, print_verbose, save_csv, save_ma
 
 # ── Source registry ────────────────────────────────────────────────────────────
 JOB_SOURCES = [
-    "indeed", "adzuna", "remoteok", "arbeitnow",
-    "weworkremotely", "jobicy", "themuse", "jobspresso",
+    "adzuna", "remoteok", "arbeitnow",
+    "weworkremotely", "jobicy", "themuse",
 ]
 PHD_SOURCES = [
-    "findaphd", "euraxess", "phdportal", "embl", "nature",
-    "academicpositions", "scholar",
-    "phdscanner",          # Playwright required
-    "jobsacuk",            # UK academic
-    "the_jobs",            # Times Higher Education
-    "higheredjobs",        # US academic
-    "daad",                # Germany / funded
-    "msca",                # Marie Curie fellowships
+    "phdscanner",   # Playwright required — playwright install chromium
+    "scholar",      # Requires manual RSS setup in config/scholar_rss_feeds.txt
 ]
 ALL_SOURCES = JOB_SOURCES + PHD_SOURCES
 
@@ -170,10 +161,6 @@ def main() -> None:
         if RICH:
             console.print("[bold]── Job Boards ──[/bold]")
 
-        if "indeed" in sources:
-            from scrapers.jobs import scrape_indeed
-            all_listings += run("Indeed", scrape_indeed, primary_kw, roles)
-
         if "adzuna" in sources:
             from scrapers.jobs import scrape_adzuna
             for cc in ["gb", "us", "de"]:
@@ -199,42 +186,10 @@ def main() -> None:
             from scrapers.extra_sources import scrape_the_muse
             all_listings += run("The Muse", scrape_the_muse, primary_kw)
 
-        if "jobspresso" in sources:
-            from scrapers.extra_sources import scrape_jobspresso
-            all_listings += run("Jobspresso (remote)", scrape_jobspresso, primary_kw)
-
     # ── PhD / Academic scrapers ────────────────────────────────────────────────
     if any(s in sources for s in PHD_SOURCES):
         if RICH:
             console.print("\n[bold]── PhD & Academic Boards ──[/bold]")
-
-        if "findaphd" in sources:
-            from scrapers.phd import scrape_findaphd
-            all_listings += run("FindAPhD", scrape_findaphd, primary_kw)
-
-        if "euraxess" in sources:
-            from scrapers.phd import scrape_euraxess
-            all_listings += run("EurAxess", scrape_euraxess, primary_kw)
-
-        if "phdportal" in sources:
-            from scrapers.phd import scrape_phdportal
-            all_listings += run("PhDPortal.eu", scrape_phdportal, primary_kw)
-
-        if "embl" in sources:
-            from scrapers.phd import scrape_embl
-            all_listings += run("EMBL / EBI / Sanger", scrape_embl, primary_kw)
-
-        if "nature" in sources:
-            from scrapers.phd import scrape_nature_careers
-            all_listings += run("Nature & Science Careers", scrape_nature_careers, primary_kw)
-
-        if "academicpositions" in sources:
-            from scrapers.phd import scrape_academic_positions
-            all_listings += run("AcademicPositions.com", scrape_academic_positions, primary_kw)
-
-        if "scholar" in sources:
-            from scrapers.phd import scrape_scholar_rss
-            all_listings += run("Google Scholar RSS", scrape_scholar_rss, primary_kw)
 
         if "phdscanner" in sources:
             if RICH:
@@ -242,25 +197,9 @@ def main() -> None:
             from scrapers.phdscanner import scrape_phdscanner
             all_listings += run("PhDScanner ★", scrape_phdscanner, primary_kw)
 
-        if "jobsacuk" in sources:
-            from scrapers.extra_sources import scrape_jobsacuk
-            all_listings += run("jobs.ac.uk (UK)", scrape_jobsacuk, primary_kw)
-
-        if "the_jobs" in sources:
-            from scrapers.extra_sources import scrape_the_jobs
-            all_listings += run("Times Higher Ed", scrape_the_jobs, primary_kw)
-
-        if "higheredjobs" in sources:
-            from scrapers.extra_sources import scrape_higheredjobs
-            all_listings += run("HigherEdJobs (US)", scrape_higheredjobs, primary_kw)
-
-        if "daad" in sources:
-            from scrapers.extra_sources import scrape_daad
-            all_listings += run("DAAD (Germany)", scrape_daad, primary_kw)
-
-        if "msca" in sources:
-            from scrapers.extra_sources import scrape_msca
-            all_listings += run("MSCA / Marie Curie", scrape_msca, primary_kw)
+        if "scholar" in sources:
+            from scrapers.phd import scrape_scholar_rss
+            all_listings += run("Google Scholar RSS", scrape_scholar_rss, primary_kw)
 
     # ── Manual URL builders ────────────────────────────────────────────────────
     if args.linkedin:
