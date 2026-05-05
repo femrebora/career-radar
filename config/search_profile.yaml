@@ -1,0 +1,42 @@
+profile:
+  name: "Your Name"
+  field: "Bioinformatics"
+
+# +15 pts each (capped at 60 total)
+primary_keywords:
+  - "bioinformatics"
+  - "cancer genomics"
+  - "CRISPR"
+
+# +5 pts each (capped at 20 total)
+secondary_keywords:
+  - "Python"
+  - "Nextflow"
+  - "NGS"
+  - "single-cell"
+  - "machine learning"
+
+# Score drops to 0 if any of these match
+exclude_keywords:
+  - "veterinary"
+  - "plant biology"
+
+# +10 pts bonus if listing country matches
+preferred_countries:
+  - "Germany"
+  - "UK"
+  - "Netherlands"
+  - "Switzerland"
+
+phd_settings:
+  funded_only: true   # skip unfunded PhD listings
+
+job_settings:
+  target_roles:
+    - "Bioinformatics Scientist"
+    - "Research Scientist"
+    - "Computational Biologist"
+  experience_levels: ["Entry", "Mid", "Postdoc"]
+
+# Listings below this score are hidden (0–100)
+min_relevance_score: 40

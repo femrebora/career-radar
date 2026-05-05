@@ -1,0 +1,10 @@
+# Google Scholar Alert RSS feeds — one URL per line, lines starting with # are ignored.
+#
+# Setup (5 minutes):
+#   1. Go to: https://scholar.google.com/scholar_alerts
+#   2. Create an alert for each of your key topics
+#   3. Click the RSS icon on each alert page
+#   4. Paste the RSS URL below
+#
+# Example:
+# https://scholar.google.com/scholar_alerts?view_op=list_alerts&hl=en&alert_id=XXXXX

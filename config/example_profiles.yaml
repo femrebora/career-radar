@@ -1,0 +1,166 @@
+# Example search profiles for different fields.
+# Copy a block into search_profile.yaml and adjust as needed.
+
+# ── Software Engineering ──────────────────────────────────────────────────────
+
+profile:
+  name: "Your Name"
+  field: "Software Engineering"
+
+primary_keywords:
+  - "software engineer"
+  - "backend"
+  - "distributed systems"
+
+secondary_keywords:
+  - "Go"
+  - "Rust"
+  - "Kubernetes"
+  - "cloud"
+  - "microservices"
+
+exclude_keywords:
+  - "frontend only"
+  - "mobile only"
+
+preferred_countries:
+  - "Germany"
+  - "Netherlands"
+  - "Remote"
+
+phd_settings:
+  funded_only: true
+
+job_settings:
+  target_roles:
+    - "Software Engineer"
+    - "Backend Engineer"
+    - "Platform Engineer"
+  experience_levels: ["Mid", "Senior"]
+
+min_relevance_score: 35
+
+---
+
+# ── Data Science ──────────────────────────────────────────────────────────────
+
+profile:
+  name: "Your Name"
+  field: "Data Science"
+
+primary_keywords:
+  - "data scientist"
+  - "machine learning"
+  - "deep learning"
+
+secondary_keywords:
+  - "Python"
+  - "PyTorch"
+  - "NLP"
+  - "LLM"
+  - "SQL"
+
+exclude_keywords:
+  - "unpaid"
+  - "no experience required"
+
+preferred_countries:
+  - "UK"
+  - "Germany"
+  - "USA"
+  - "Remote"
+
+phd_settings:
+  funded_only: true
+
+job_settings:
+  target_roles:
+    - "Data Scientist"
+    - "ML Engineer"
+    - "Research Scientist"
+  experience_levels: ["Entry", "Mid"]
+
+min_relevance_score: 35
+
+---
+
+# ── Molecular Biology / Biochemistry ─────────────────────────────────────────
+
+profile:
+  name: "Your Name"
+  field: "Molecular Biology"
+
+primary_keywords:
+  - "molecular biology"
+  - "protein structure"
+  - "structural biology"
+
+secondary_keywords:
+  - "cryo-EM"
+  - "X-ray crystallography"
+  - "AlphaFold"
+  - "biochemistry"
+  - "enzymology"
+
+exclude_keywords:
+  - "plant biology"
+  - "agriculture"
+
+preferred_countries:
+  - "UK"
+  - "Germany"
+  - "Switzerland"
+  - "Netherlands"
+
+phd_settings:
+  funded_only: true
+
+job_settings:
+  target_roles:
+    - "Research Scientist"
+    - "Postdoctoral Researcher"
+  experience_levels: ["Entry", "PhD", "Postdoc"]
+
+min_relevance_score: 40
+
+---
+
+# ── Quantitative Finance ──────────────────────────────────────────────────────
+
+profile:
+  name: "Your Name"
+  field: "Quantitative Finance"
+
+primary_keywords:
+  - "quantitative analyst"
+  - "quant researcher"
+  - "algorithmic trading"
+
+secondary_keywords:
+  - "Python"
+  - "C++"
+  - "time series"
+  - "risk modelling"
+  - "stochastic calculus"
+
+exclude_keywords:
+  - "sales"
+  - "relationship manager"
+
+preferred_countries:
+  - "UK"
+  - "Switzerland"
+  - "Germany"
+  - "USA"
+
+phd_settings:
+  funded_only: false
+
+job_settings:
+  target_roles:
+    - "Quantitative Analyst"
+    - "Quant Researcher"
+    - "Quantitative Developer"
+  experience_levels: ["Entry", "Mid"]
+
+min_relevance_score: 40
